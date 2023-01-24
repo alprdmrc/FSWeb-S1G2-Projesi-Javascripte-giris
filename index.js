@@ -19,7 +19,12 @@ Aşağıdakileri yapın:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
-
+var surucuYasi = 28;
+if (surucuYasi>18) {
+  console.log(true);
+} else {
+  console.log(false);
+}
 
 
 /*
@@ -33,7 +38,12 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
-
+let n1 = 21;
+let n2 = 98;
+if (n2>n1) {
+  n1=n1+n2
+  console.log(n1)
+}
 
 
 
@@ -48,7 +58,9 @@ Aşağıdakileri yapın:
 
    İPUCU: Number metoduna bakabilirsin
 */
-
+var year = "1999";
+var intYear = Number(year);
+console.log(intYear);
 
 
 
@@ -61,8 +73,9 @@ Aşağıdakileri yapın:
    3. a ve b'yi çarpıp, sonucu dönün
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(a, b){
+  var sonuc = a*b;
+  return sonuc;
 }
 
 
@@ -77,8 +90,9 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi(years){
+  var dogYear = years * 7;
+  return dogYear;
 }
 
 
@@ -103,9 +117,26 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
-
+var oppChoice = null;
+var randomNum = Math.floor(Math.random()*3); // 0 <= x < 3  
+if (randomNum == 0) {
+  oppChoice = "Taş"
+} else if (randomNum == 1) {
+  oppChoice = "Kağıt"
+} else {
+  oppChoice = "Makas"
+}
+console.log(oppChoice)
 function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+  if (oyuncu == bilgisayar) {
+    return `Beraberlik`
+  } else if ((oyuncu=="Taş" && bilgisayar=="Makas") 
+            ||(oyuncu=="Makas" && bilgisayar=="Kağıt")
+            ||(oyuncu=="Kağıt" && bilgisayar=="Taş")) {
+    return `Kazandın!`
+  } else {
+    return `Kaybettin!`
+  }
 }
 
 
@@ -120,8 +151,9 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(km){
+  var miles = km*0.621371;
+  return miles;
 }
 
 
@@ -134,8 +166,9 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 3. feet değerini geri dönün
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(cm){
+  let feet = cm / 30.48;
+  return feet;
 }
 
 
@@ -153,8 +186,11 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(sayi){
+  return `${sayi} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`
+}
+for (let i=5 ; i>0 ; i--) {
+  console.log(cocukSarkisi(i))
 }
 
 
@@ -173,8 +209,18 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+function notHesapla(not){
+  if (not < 60) {
+    return `F aldın`
+  } else if (not < 70) {
+    return `D aldın`
+  } else if (not < 80) {
+    return 'C aldın'
+  } else if (not < 90) {
+    return 'B aldın' 
+  } else {
+    return 'A aldın'
+  }
 }
 
 
@@ -191,10 +237,20 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yapın.
 */
 
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
-}
+function sesliHarfSayaci(string) {
+  let vovels = ["a","e","i","o","u"];
+  let count = 0;
+  var array = string.toLowerCase().split('');
+  for (let i=0; i<string.length; i++) {
+    if (vovels.includes(array[i])) {
+      count++
+    }
+  }
+  console.log(array)
+  console.log(count)
 
+}
+sesliHarfSayaci("Suleyman")
 
 
 /* Lütfen bu satırın alt tarafını değiştirmeyin */
